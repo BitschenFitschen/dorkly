@@ -132,9 +132,7 @@ app.post('/deletenote/:id', function(req, res){
 });
 
 app.post('/dropdb', function(req,res){
-//this function will delete all articles except those that have user notes.
-//once it goes back to the client, the page will be refreshed which forces
-//a new GET for the latest articles on the CNN Top Stores area of their home page.
+
 	Article.find({})
 		.populate('note')
 		.exec(function(err, doc){
